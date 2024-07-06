@@ -5,8 +5,8 @@
 - Latin text to Morse code conversion
 - Morse code to Latin text conversion
 - Modular functions
+- Non-DOM unit testing
 
 # TODO
 
-- Non-DOM unit testing
 - Page styling
