@@ -1,93 +1,40 @@
-import { morseData } from "./data.js";
+import codeToEng from "./modules/codeToEng.js";
+import engToCode from "./modules/engToCode.js";
 
 const txtToMorBtn = document.getElementById("txt-to-mor-btn");
 const morToTxtBtn = document.getElementById("mor-to-txt-btn");
-
-// on click, get inputText
-// check if first character is valid letter or valid punctuation
-// throw error if not valid
-// if letter, convert english to morse
-// if morse punctuation, convert morse to english
-
-function convertToText() {
-  const inputText = document.getElementById("code-text").value;
-  const outputText = document.getElementById("eng-text");
-  console.log(`inputText`);
-  console.log(inputText);
-
-  // split each char
-  const charArray = inputText.split(" ");
-  console.log(`charArray`);
-  console.log(charArray);
-
-  // swap each morse with matching char, "/" to " "
-  let swappedString = charArray.reduce((string, char) => {
-    let thisChar = "";
-    for (const [key, value] of Object.entries(morseData)) {
-      if (char === value) {
-        thisChar = key;
-      } else if (char === "/") {
-        thisChar = " ";
-      }
-    }
-    if (thisChar === "") {
-      thisChar = "#";
-    }
-    string += thisChar;
-
-    return string;
-  }, "");
-
-  swappedString = swappedString.slice(0, swappedString.length - 1);
-  console.log(`swappedString`);
-  console.log(swappedString);
-
-  outputText.value = swappedString;
-}
+const engText = document.getElementById("eng-text");
+const codeText = document.getElementById("code-text");
 
 function convertToMorse() {
-  const inputText = document.getElementById("eng-text").value;
-  const outputText = document.getElementById("code-text");
-  console.log(`inputText`);
-  console.log(inputText);
-
+  const inputText = engText.value;
   // to upper case
   const upperText = inputText.toUpperCase();
-  console.log(`upperText`);
-  console.log(upperText);
-
   // split each char
   const charArray = upperText.split("");
-  console.log(`charArray`);
-  console.log(charArray);
-
   // swap each char with matching morse, " " with "/"
-  const swappedString = charArray.reduce((string, char) => {
-    let thisChar = "";
-    for (const [key, value] of Object.entries(morseData)) {
-      if (char === key) {
-        thisChar = value;
-      } else if (char === " ") {
-        thisChar = "/";
-      }
-    }
-    if (thisChar === "") {
-      thisChar = "#";
-    }
-    string += `${thisChar} `;
-    return string;
-  }, "");
-  console.log(`swappedString`);
-  console.log(swappedString);
-
+  const swappedString = engToCode(charArray);
   // add to output textarea
-  outputText.value = swappedString;
+  codeText.value = swappedString;
 }
 
-txtToMorBtn.addEventListener("click", () => {
-  convertToMorse();
-});
+function convertToText() {
+  let inputText = codeText.value;
+  // handles edge case of space at end of morse inputß
+  if (inputText.slice(-1) === " ") {
+    inputText = inputText.slice(0, inputText.length - 1);
+  }
+  // split each char
+  const charArray = inputText.split(" ");
+  // swap each morse with matching char, "/" to " "
+  const swappedString = codeToEng(charArray);
+  engText.value = swappedString;
+}
 
 morToTxtBtn.addEventListener("click", () => {
   convertToText();
+});
+
+txtToMorBtn.addEventListener("click", () => {
+  convertToMorse();
 });
