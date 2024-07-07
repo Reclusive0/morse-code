@@ -5,19 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Morse Code Translator</title>
     <script type="module" src="./script.js"></script>
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Morse Code Translator</h1>
-    <div class="input-side">
-      <h1>Input Text</h1>
-      <textarea name="input-text" id="input-text">
+    <h1 class="header top-header">Morse Code Translator</h1>
+    <div class="translator">
+      <div class="text-side">
+        <h1 class="header">English Text</h1>
+        <textarea
+          class="text-area"
+          name="eng-text"
+          id="eng-text"
+          rows="6"
+          maxlength="300"
+        >
 The quick brown fox jumps over the lazy dog</textarea
-      >
-    </div>
-    <div class="convert-bar"><button id="convert-btn">Convert!</button></div>
-    <div class="output-side">
-      <h1>Output Code</h1>
-      <textarea name="output-text" id="output-text"></textarea>
+        >
+      </div>
+      <div class="convert-bar">
+        <div class="convert-right">
+          <div>Text to code!</div>
+          <button id="txt-to-mor-btn">
+            <img src="./assets/arrow-right.svg" alt="" />
+          </button>
+        </div>
+        <div class="convert-left">
+          <button id="mor-to-txt-btn">
+            <img src="./assets/arrow-left.svg" alt="" />
+          </button>
+          <div>Code to text!</div>
+        </div>
+      </div>
+      <div class="code-side">
+        <h1 class="header">Morse Code</h1>
+        <textarea
+          class="text-area"
+          name="code-text"
+          id="code-text"
+          rows="6"
+        ></textarea>
+      </div>
     </div>
   </body>
 </html>

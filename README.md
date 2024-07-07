@@ -3,9 +3,10 @@
 # CURRENTLY IMPLEMENTED
 
 - Latin text to Morse code conversion
+- Morse code to Latin text conversion
+- Modular functions
+- Non-DOM unit testing
 
 # TODO
 
-- Morse code to Latin text conversion
-- Modular code
-- Non-DOM unit testing
+- Page styling
