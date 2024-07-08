@@ -9,6 +9,12 @@
   </head>
   <body>
     <h1 class="header top-header">Morse Code Translator</h1>
+    <div class="instructions">
+      <div class="header">Instructions</div>
+      <p>Translate from Latin alphabet to Morse Code and back again!</p>
+      <p>Supports spaces, simple punctuation (. , ! ?) and numerals.</p>
+      <p>Unknown characters will appear as a "#".</p>
+    </div>
     <div class="translator">
       <div class="text-side">
         <h1 class="header">English Text</h1>
@@ -19,7 +25,7 @@
           rows="6"
           maxlength="300"
         >
-The quick brown fox jumps over the lazy dog</textarea
+The quick brown fox jumps over the lazy dog.</textarea
         >
       </div>
       <div class="convert-bar">
@@ -43,6 +49,7 @@ The quick brown fox jumps over the lazy dog</textarea
           name="code-text"
           id="code-text"
           rows="6"
+          placeholder="You can type here too!"
         ></textarea>
       </div>
     </div>
