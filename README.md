@@ -11,4 +11,4 @@
 
 # TODO
 
-- Page styling
+- More in-depth page styling
