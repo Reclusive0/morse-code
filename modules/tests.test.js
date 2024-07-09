@@ -7,25 +7,25 @@ test("Should handle all alphabet characters", () => {
   );
   expect(
     convertToText(
-      ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.. "
+      ".- -... -.-. -.. . ..-. --. .... .. .--- -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- .-- -..- -.-- --.."
     )
   ).toBe("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 });
 
 test("Should handle numbers, spaces, and simple punctuation", () => {
   expect(convertToMorse("1234567890.,!?     ")).toBe(
-    ".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- .-.-.- --..-- -.-.-- ..--.. / / / / / "
+    ".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- .-.-.- --..-- -.-.-- ..--.. "
   );
   expect(
     convertToText(
-      ".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- .-.-.- --..-- -.-.-- ..--.. / / / / / "
+      ".---- ..--- ...-- ....- ..... -.... --... ---.. ----. ----- .-.-.- --..-- -.-.-- ..--.. / / / / /"
     )
   ).toBe("1234567890.,!?     ");
 });
 
 test("Should handle upper and lowercase letters", () => {
   expect(convertToMorse("EeEeEe")).toBe(". . . . . . ");
-  expect(convertToText(". . . . . . ")).toBe("EEEEEE");
+  expect(convertToText(". . . . . .")).toBe("EEEEEE");
 });
 
 test("Should return correct string when converting to Morse", () => {
@@ -45,7 +45,7 @@ test("Should return correct string when converting to English", () => {
   );
   expect(
     convertToText(
-      "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --. .-.-.- "
+      "- .... . / --.- ..- .. -.-. -.- / -... .-. --- .-- -. / ..-. --- -..- / .--- ..- -- .--. ... / --- ...- . .-. / - .... . / .-.. .- --.. -.-- / -.. --- --. .-.-.-"
     )
   ).toBe("THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.");
 });
